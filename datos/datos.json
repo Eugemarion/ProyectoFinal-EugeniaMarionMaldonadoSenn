@@ -1,0 +1,18 @@
+[
+    {
+        "mejorvendedormesagosto": 160,
+        "sucursal": "Aurora",
+        "cantidaddeproductosvendidos": 15
+    },
+    {
+        "mejorvendedormesjulio": 111,
+        "sucursal": "Florencia",
+        "cantidaddeproductosvendidos": 21
+    },
+    {
+        "mejorvendedormesjunio": 180,
+        "sucursal": "Florencia",
+        "cantidaddeproductosvendidos": 10
+
+    }
+]

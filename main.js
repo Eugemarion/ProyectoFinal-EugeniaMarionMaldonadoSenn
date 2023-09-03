@@ -6,6 +6,7 @@ let codmax3
 let impmax3
 let codmax = 0;
 let impmax = 0;
+let empleadodelmes;
 function sucursal(x) {
     console.log("Sucursal", x)
     let cod = parseFloat(prompt("Ingrese codigo de vendedor, para finalizar ingrese 0"));
@@ -28,28 +29,28 @@ function sucursal(x) {
 
 let item = document.all;
 console.log(item);
-let vendedores = [{Nombre: "Cristian", Sucursal: "Pandora", CodVendedor: "120"},
-{Nombre: "Alexia", Sucursal: "Pandora", CodVendedor: "360"},
-{Nombre: "Alejandra", Sucursal: "Pandora", CodVendedor: "890"},
-{Nombre: "Manuel", Sucursal: "Florencia", CodVendedor: "520"},
-{Nombre: "Cristina", Sucursal: "Florencia", CodVendedor: "630"},
-{Nombre: "Luis", Sucursal: "Aurora", CodVendedor: "410"},
-{Nombre: "German", Sucursal: "Aurora", CodVendedor: "970"},
-{Nombre: "Guillermo", Sucursal: "Aurora", CodVendedor: "460"},
-{Nombre: "Sofia", Sucursal: "Aurora", CodVendedor: "160"}];
+let vendedores = [{ Nombre: "Cristian", Sucursal: "Pandora", CodVendedor: "120" },
+{ Nombre: "Alexia", Sucursal: "Pandora", CodVendedor: "360" },
+{ Nombre: "Alejandra", Sucursal: "Pandora", CodVendedor: "890" },
+{ Nombre: "Manuel", Sucursal: "Florencia", CodVendedor: "520" },
+{ Nombre: "Cristina", Sucursal: "Florencia", CodVendedor: "630" },
+{ Nombre: "Luis", Sucursal: "Aurora", CodVendedor: "410" },
+{ Nombre: "German", Sucursal: "Aurora", CodVendedor: "970" },
+{ Nombre: "Guillermo", Sucursal: "Aurora", CodVendedor: "460" },
+{ Nombre: "Sofia", Sucursal: "Aurora", CodVendedor: "160" }];
 
-localStorage.setItem('empleados',[{Nombre: "Cristian", Sucursal: "Pandora", CodVendedor: "120"},
-{Nombre: "Alexia", Sucursal: "Pandora", CodVendedor: "360"},
-{Nombre: "Alejandra", Sucursal: "Pandora", CodVendedor: "890"},
-{Nombre: "Manuel", Sucursal: "Florencia", CodVendedor: "520"},
-{Nombre: "Cristina", Sucursal: "Florencia", CodVendedor: "630"},
-{Nombre: "Luis", Sucursal: "Aurora", CodVendedor: "410"},
-{Nombre: "German", Sucursal: "Aurora", CodVendedor: "970"},
-{Nombre: "Guillermo", Sucursal: "Aurora", CodVendedor: "460"},
-{Nombre: "Sofia", Sucursal: "Aurora", CodVendedor: "160"}]);
+localStorage.setItem('empleados', [{ Nombre: "Cristian", Sucursal: "Pandora", CodVendedor: "120" },
+{ Nombre: "Alexia", Sucursal: "Pandora", CodVendedor: "360" },
+{ Nombre: "Alejandra", Sucursal: "Pandora", CodVendedor: "890" },
+{ Nombre: "Manuel", Sucursal: "Florencia", CodVendedor: "520" },
+{ Nombre: "Cristina", Sucursal: "Florencia", CodVendedor: "630" },
+{ Nombre: "Luis", Sucursal: "Aurora", CodVendedor: "410" },
+{ Nombre: "German", Sucursal: "Aurora", CodVendedor: "970" },
+{ Nombre: "Guillermo", Sucursal: "Aurora", CodVendedor: "460" },
+{ Nombre: "Sofia", Sucursal: "Aurora", CodVendedor: "160" }]);
 
-localStorage.setItem ('empleados', JSON.stringify(vendedores));
-let imprimir =localStorage.getItem('empleados');
+localStorage.setItem('empleados', JSON.stringify(vendedores));
+let imprimir = localStorage.getItem('empleados');
 console.log(imprimir);
 
 let x = prompt("Ingrese nombre sucursal, los nombres de sucursal posible son Pandora, Florencia y Aurora, para finalizar ingrese terminado ");
@@ -80,25 +81,54 @@ const mejoresvendedores = [{ Nombredesucursal: "Pandora", mejorvendedor: codmax1
 console.table(mejoresvendedores);
 if (impmax1 > impmax2) {
     console.log("El vendedor", codmax1, "de la sucursal Pandora, genero el mayor importe de $", impmax1)
+    empleadodelmes = codmax1;
 }
+
 else {
     if (impmax2 > impmax3) {
         console.log("El vendedor", codmax2, "de la sucursal Florencia, genero el mayor importe de $", impmax2)
+        empleadodelmes = codmax2;
     }
     else {
         console.log("El vendedor", codmax3, "de la sucursal Aurora, genero el mayor importe de $", impmax3)
+        empleadodelmes = codmax3;
     }
 }
 
-let sucursales = [{Nombre: "Pandora", CantidadDeVendedores: "16", CodMejorVendedorDelMes: codmax1},
-{Nombre: "Florencia", CantidadDeVendedores: "12", CodMejorVendedorDelMes: codmax2},
-{Nombre: "Aurora", CantidadDeVendedores: "23", CodMejorVendedorDelMes: codmax3}];
+libre('titulo').innerHTML = "Empleado del Mes";
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM ready')
+});
+document.querySelector('button').addEventListener('click', () => {
+    Swal.fire('Gracias por ingresar los datos, el mejor vendedor es', empleadodelmes)
+}
+);
 
-localStorage.setItem('sucursal', [{Nombre: "Pandora", CantidadDeVendedores: "16", CodMejorVendedorDelMes: codmax1},
-{Nombre: "Florencia", CantidadDeVendedores: "12", CodMejorVendedorDelMes: codmax2},
-{Nombre: "Aurora", CantidadDeVendedores: "23", CodMejorVendedorDelMes: codmax3}]);
 
-localStorage.setItem ('sucursal', JSON.stringify(sucursales));
+let sucursales = [{ Nombre: "Pandora", CantidadDeVendedores: "16", CodMejorVendedorDelMes: codmax1 },
+{ Nombre: "Florencia", CantidadDeVendedores: "12", CodMejorVendedorDelMes: codmax2 },
+{ Nombre: "Aurora", CantidadDeVendedores: "23", CodMejorVendedorDelMes: codmax3 }];
+
+localStorage.setItem('sucursal', [{ Nombre: "Pandora", CantidadDeVendedores: "16", CodMejorVendedorDelMes: codmax1 },
+{ Nombre: "Florencia", CantidadDeVendedores: "12", CodMejorVendedorDelMes: codmax2 },
+{ Nombre: "Aurora", CantidadDeVendedores: "23", CodMejorVendedorDelMes: codmax3 }]);
+
+localStorage.setItem('sucursal', JSON.stringify(sucursales));
 
 let mostrar = localStorage.getItem('sucursal');
-console.log (mostrar);
+console.log(mostrar);
+
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', () => {
+    fetch('datos/datos.json')
+        .then((respuesta) => {
+            return respuesta.json();
+        })
+        .then((respuesta) => {
+            console.log(respuesta)
+        })
+            .catch((error) => {
+            console.log(error);
+        })
+})
